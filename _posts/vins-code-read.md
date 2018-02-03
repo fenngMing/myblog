@@ -8,7 +8,10 @@ categories:
 - 机器人视觉
 ---
 
-## 关键分析
+> 本文主要介绍自己在开源inertial-slam项目vins-mono学习过程中的疑惑和思考
+<!-- more -->
+
+### 关键分析
 1. **Ceres的使用**
     > - [博客：Ceres Solver的使用和Bundle Adjustment](http://jinjaysnow.github.io/blog/2016-12/Ceres%E4%BD%BF%E7%94%A8.html)
 1. **SLAM中的Sliding Window和Marginalization**
@@ -16,7 +19,8 @@ categories:
     > - [泡泡机器人SLAM原创专栏-滑动窗算法](http://diyitui.com/mip-1479517546.62857641.html)
     > - [DSO 中的Windowed Optimization](http://blog.csdn.net/heyijia0327/article/details/53707261)
 
-## 疑惑
+
+### 疑惑
 1. **IMU Pre-intergration Jacob矩阵推导**
     >论文讲的都是用简单的Euler method算IMU积分的情况， 利用状态对时间的导数，把状态转换函数用此导数一阶线性近似。 jacob和covariance的推导都比较简单。但实际代码中用的是midpoint-method, 不容易把状态对时间求导， 所以直接转换方程对上一时刻状态求导， jacob很容易推导出来，但covariance涉及到非线性的状态变换，求Covariance比较复杂
     > 1. 递归求Jacob的推导:
